@@ -56,7 +56,7 @@ ENV GOPATH=${USER_HOME}/.local/share/go \
     GOMODCACHE=${USER_HOME}/.cache/go/mod
 
 RUN go install golang.org/x/tools/gopls@latest && \
-    go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest && \
+    go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest && \
     go install github.com/nametake/golangci-lint-langserver@latest && \
     go clean -cache -modcache
 
