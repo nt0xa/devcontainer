@@ -28,7 +28,7 @@ RUN useradd -m -s /bin/bash linuxbrew
 USER linuxbrew
 WORKDIR ${USER_HOME}
 
-RUN mkdir -p .local/share .local/state .cache .config && \
+RUN mkdir -p .local/share .local/state .cache .config .config/nvim .config/fish && \
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ENV PATH="${USER_HOME}/.linuxbrew/bin:${PATH}"
@@ -77,6 +77,7 @@ ENV PATH="${USER_HOME}/.local/share/cargo/bin:${PATH}"
 
 # AI {{{
 
+RUN mkdir -p .config/github-copilot
 RUN npm install -g \
     @github/copilot-language-server \
     @anthropic-ai/claude-code \
