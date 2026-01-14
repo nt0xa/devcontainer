@@ -41,6 +41,8 @@ RUN brew install \
     jq \
     neovim \
     tree-sitter-cli \
+    sops \
+    age \
     hashicorp/tap/terraform \
     ansible \
     golang \
