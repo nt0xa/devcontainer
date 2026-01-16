@@ -4,6 +4,8 @@ FROM debian:stable-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        gosu \
+        openssh-client \
         git \
         curl \
         locales \
@@ -91,3 +93,6 @@ RUN npm install -g \
 # }}}
 
 VOLUME ["${USER_HOME}/.local", "${USER_HOME}/.cache"]
+USER root
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
