@@ -46,6 +46,7 @@ RUN brew install \
     sops \
     age \
     hashicorp/tap/terraform \
+    hashicorp/tap/packer \
     ansible \
     golang \
     node \
