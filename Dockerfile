@@ -4,6 +4,9 @@ FROM debian:stable-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        iproute2 \
+        procps \
+        bind9-host \
         gosu \
         openssh-client \
         git \
