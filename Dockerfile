@@ -52,8 +52,10 @@ RUN brew install \
     hashicorp/tap/packer \
     ansible \
     golang \
+    gopls golangci-lint golangci-lint-langserver \
     node \
     python \
+    uv ty ruff \
     rustup && \
     brew cleanup --prune=all
 
@@ -65,14 +67,16 @@ ENV GOPATH=${USER_HOME}/.local/share/go \
     GOCACHE=${USER_HOME}/.cache/go/build \
     GOMODCACHE=${USER_HOME}/.cache/go/mod
 
-RUN go install golang.org/x/tools/gopls@latest && \
-    go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest && \
-    go install github.com/nametake/golangci-lint-langserver@latest && \
-    go clean -cache -modcache
-
 ENV PATH="${USER_HOME}/.local/share/go/bin:${PATH}"
 
 # }}}
+
+# Python {{{
+
+RUN uv tool install ty@latest && uv tool install ruff@latest
+
+# }}}
+
 
 # Rust {{{
 
