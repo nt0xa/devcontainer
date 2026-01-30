@@ -90,7 +90,7 @@ ENV PATH="${USER_HOME}/.local/share/cargo/bin:${PATH}"
 
 # TypeScript/JavaScript {{{
 
-RUN npm install -g typescript-language-server typescript prettier
+RUN npm install -g typescript-language-server typescript @biomejs/biome
 
 # }}}
 
