@@ -77,7 +77,6 @@ RUN uv tool install ty@latest && uv tool install ruff@latest
 
 # }}}
 
-
 # Rust {{{
 
 ENV CARGO_HOME=${USER_HOME}/.local/share/cargo \
@@ -86,6 +85,12 @@ ENV CARGO_HOME=${USER_HOME}/.local/share/cargo \
 RUN rustup-init -y --default-toolchain stable --component rust-analyzer
 
 ENV PATH="${USER_HOME}/.local/share/cargo/bin:${PATH}"
+
+# }}}
+
+# TypeScript/JavaScript {{{
+
+RUN npm install -g typescript-language-server typescript prettier
 
 # }}}
 
