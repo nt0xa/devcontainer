@@ -105,7 +105,7 @@ RUN npm install -g \
 
 # }}}
 
-VOLUME ["${USER_HOME}/.local", "${USER_HOME}/.cache"]
+VOLUME ["${USER_HOME}"]
 USER root
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
