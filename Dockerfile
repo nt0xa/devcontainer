@@ -13,6 +13,7 @@ RUN apt-get update && \
         curl \
         locales \
         build-essential \
+        pkg-config \
         cmake \
         ca-certificates && \
     sed -i "/en_US.UTF-8/s/^# //g" /etc/locale.gen && \
