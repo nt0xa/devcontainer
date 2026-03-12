@@ -36,7 +36,9 @@ USER linuxbrew
 WORKDIR ${USER_HOME}
 
 RUN mkdir -p .local/share .local/state .cache .config .config/nvim .config/fish && \
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+    echo 'eval "$('"${USER_HOME}"'/.linuxbrew/bin/brew shellenv)"' >> "${USER_HOME}/.bashrc" && \
+    echo 'eval "$('"${USER_HOME}"'/.linuxbrew/bin/brew shellenv)"' >> "${USER_HOME}/.profile"
 
 ENV PATH="${USER_HOME}/.linuxbrew/bin:${PATH}"
 
@@ -53,6 +55,7 @@ RUN brew install \
     hashicorp/tap/terraform \
     hashicorp/tap/packer \
     ansible \
+    docker \
     golang \
     gopls golangci-lint golangci-lint-langserver \
     node \
@@ -108,6 +111,4 @@ RUN npm install -g \
 # }}}
 
 VOLUME ["${USER_HOME}"]
-USER root
-COPY docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+USER linuxbrew
