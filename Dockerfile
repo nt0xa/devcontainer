@@ -61,6 +61,7 @@ RUN brew install \
     node \
     python \
     uv ty ruff \
+    ptpython && \
     rustup && \
     brew cleanup --prune=all
 
