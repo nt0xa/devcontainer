@@ -55,7 +55,6 @@ RUN brew install \
     hashicorp/tap/terraform \
     hashicorp/tap/packer \
     ansible \
-    docker \
     golang \
     gopls golangci-lint golangci-lint-langserver \
     node \
