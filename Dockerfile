@@ -4,6 +4,7 @@ FROM debian:stable-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        sudo \
         iproute2 \
         procps \
         bind9-host \
@@ -15,6 +16,7 @@ RUN apt-get update && \
         build-essential \
         pkg-config \
         cmake \
+        file \
         ca-certificates && \
     sed -i "/en_US.UTF-8/s/^# //g" /etc/locale.gen && \
     locale-gen && \
@@ -50,6 +52,7 @@ RUN brew install \
     jq \
     neovim \
     tree-sitter-cli \
+    gh \
     sops \
     age \
     hashicorp/tap/terraform \
@@ -60,7 +63,9 @@ RUN brew install \
     node \
     python \
     uv ty ruff \
-    ptpython && \
+    ptpython \
+    codex \
+    claude-code \
     rustup && \
     brew cleanup --prune=all
 
@@ -104,8 +109,6 @@ RUN npm install -g typescript-language-server typescript @biomejs/biome
 RUN mkdir -p .config/github-copilot
 RUN npm install -g \
     @github/copilot-language-server \
-    @anthropic-ai/claude-code \
-    @openai/codex \
     npm cache clean --force
 
 # }}}
