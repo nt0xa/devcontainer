@@ -104,14 +104,5 @@ RUN npm install -g typescript-language-server typescript @biomejs/biome
 
 # }}}
 
-# AI {{{
-
-RUN mkdir -p .config/github-copilot
-RUN npm install -g \
-    @github/copilot-language-server \
-    npm cache clean --force
-
-# }}}
-
 VOLUME ["${USER_HOME}"]
 USER linuxbrew
