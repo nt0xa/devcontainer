@@ -65,8 +65,7 @@ RUN brew install \
     uv ty ruff \
     ptpython \
     codex \
-    claude-code \
-    rustup && \
+    claude-code && \
     brew cleanup --prune=all
 
 # }}}
@@ -89,10 +88,10 @@ RUN uv tool install ty@latest && uv tool install ruff@latest
 
 # Rust {{{
 
-ENV CARGO_HOME=${USER_HOME}/.local/share/cargo \
-    RUSTUP_HOME=${USER_HOME}/.rustup
+ENV CARGO_HOME=${USER_HOME}/.local/share/cargo
 
-RUN rustup-init -y --default-toolchain stable --component rust-analyzer
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+  | sh -s -- -y --default-toolchain stable --component rust-analyzer
 
 ENV PATH="${USER_HOME}/.local/share/cargo/bin:${PATH}"
 
