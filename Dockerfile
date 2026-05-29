@@ -5,6 +5,8 @@ FROM debian:stable-slim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         sudo \
+        iputils-ping \
+        net-tools \
         iproute2 \
         procps \
         bind9-host \
