@@ -9,6 +9,7 @@ RUN apt-get update && \
         net-tools \
         iproute2 \
         procps \
+        dnsutils \
         bind9-host \
         gosu \
         openssh-client \
