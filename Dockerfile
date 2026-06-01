@@ -20,6 +20,7 @@ RUN apt-get update && \
         pkg-config \
         cmake \
         file \
+        xxd \
         ca-certificates && \
     sed -i "/en_US.UTF-8/s/^# //g" /etc/locale.gen && \
     locale-gen && \
