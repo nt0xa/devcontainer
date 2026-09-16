@@ -22,6 +22,7 @@ RUN apt-get update && \
         file \
         xxd \
         ca-certificates && \
+        bubblewrap && \
     sed -i "/en_US.UTF-8/s/^# //g" /etc/locale.gen && \
     locale-gen && \
     rm -rf /var/lib/apt/lists/*
