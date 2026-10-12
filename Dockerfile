@@ -37,7 +37,7 @@ ENV LANG=en_US.UTF-8 \
 
 ARG USER_HOME=/home/linuxbrew
 
-RUN useradd -m -s /bin/bash linuxbrew && usermod -aG sudo username
+RUN useradd -m -s /bin/bash linuxbrew && usermod -aG sudo linuxbrew
 USER linuxbrew
 WORKDIR ${USER_HOME}
 
